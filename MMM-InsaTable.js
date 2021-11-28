@@ -74,8 +74,7 @@ Module.register("MMM-InsaTable", {
     let isDataAvailable = false;
 
     items.forEach(element => {
-      console.log(element.company);
-      //if (element.company == this.config.company || this.config.company == "") {
+      if (element.company == this.config.company || this.config.company == "") {
         let endTime = new Date(element.eDate + " " + element.eTime);
         if (now < endTime) {
           console.log(element);
@@ -83,7 +82,7 @@ Module.register("MMM-InsaTable", {
           wrapper.appendChild(article);
           isDataAvailable = true;
         }
-      //}
+      }
     });
 
     if (!isDataAvailable) wrapper.innerText = "Aktuell stehen keine Verkehrsmeldungen zur Verfügung.";
