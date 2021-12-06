@@ -77,7 +77,7 @@ Module.register("MMM-InsaTable", {
       if (element.company == this.config.company || this.config.company == "") {
         let endTime = new Date(element.eDate + " " + element.eTime);
         if (now < endTime) {
-          console.log(element);
+          //Log.log(element);
           let article = this.getArticle(element);
           wrapper.appendChild(article);
           isDataAvailable = true;
