@@ -1,7 +1,6 @@
-'use strict';
+"use strict";
 
 Module.register("MMM-InsaTable", {
-
   jsonData: null,
 
   // Default module config.
@@ -59,8 +58,7 @@ Module.register("MMM-InsaTable", {
     let items = [];
     if (this.config.arrayName) {
       items = this.jsonData[this.config.arrayName];
-    }
-    else {
+    } else {
       items = this.jsonData;
     }
 
@@ -103,16 +101,16 @@ Module.register("MMM-InsaTable", {
     if (jsonObject.affectedProduct) {
       let products = document.createElement("h3");
       for (let i = 0; i < jsonObject.affectedProduct.length; i++) {
-        if (i > 0) { products.innerText = products.innerText + ", "};
+        if (i > 0) { products.innerText = products.innerText + ", " };
         products.innerText = products.innerText + jsonObject.affectedProduct[i].name;
       }
       products.innerText = "Betroffene Linie(n): " + products.innerText;
       article.appendChild(products);
     }
-    
+
     if (jsonObject.text) {
       let text = document.createElement("p");
-      text.innerText = jsonObject.text.replaceAll("<br />","  ");
+      text.innerText = jsonObject.text.replaceAll("<br />", "  ");
       article.appendChild(text);
     }
 
