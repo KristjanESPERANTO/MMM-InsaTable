@@ -7,7 +7,8 @@ Module.register("MMM-InsaTable", {
   defaults: {
     url: "",
     arrayName: null,
-    noDataText: "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
+    noDataText:
+      "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
     keepColumns: [],
     size: 0,
     tryFormatDate: false,
@@ -71,8 +72,11 @@ Module.register("MMM-InsaTable", {
     let now = new Date();
     let isDataAvailable = false;
 
-    items.forEach(element => {
-      if (element.company == this.config.company || this.config.company == "") {
+    items.forEach((element) => {
+      if (
+        element.company === this.config.company ||
+        this.config.company === ""
+      ) {
         let endTime = new Date(element.eDate + " " + element.eTime);
         if (now < endTime) {
           //Log.log(element);
@@ -83,7 +87,9 @@ Module.register("MMM-InsaTable", {
       }
     });
 
-    if (!isDataAvailable) wrapper.innerText = "Aktuell stehen keine Verkehrsmeldungen zur Verfügung.";
+    if (!isDataAvailable)
+      wrapper.innerText =
+        "Aktuell stehen keine Verkehrsmeldungen zur Verfügung.";
 
     return wrapper;
   },
@@ -101,8 +107,11 @@ Module.register("MMM-InsaTable", {
     if (jsonObject.affectedProduct) {
       let products = document.createElement("h3");
       for (let i = 0; i < jsonObject.affectedProduct.length; i++) {
-        if (i > 0) { products.innerText = products.innerText + ", " };
-        products.innerText = products.innerText + jsonObject.affectedProduct[i].name;
+        if (i > 0) {
+          products.innerText = products.innerText + ", ";
+        }
+        products.innerText =
+          products.innerText + jsonObject.affectedProduct[i].name;
       }
       products.innerText = "Betroffene Linie(n): " + products.innerText;
       article.appendChild(products);
@@ -116,5 +125,4 @@ Module.register("MMM-InsaTable", {
 
     return article;
   }
-
 });
