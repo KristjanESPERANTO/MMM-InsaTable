@@ -1,8 +1,5 @@
 {
   "name": "mmm-insatable",
   "version": "1.0.0",
-  "description": "A module for the MagicMirror² project which creates a table filled with a list gathered from a json request.",
-  "dependencies": {
-    "node-fetch": "^3.3.0"
-  }
+  "description": "A module for the MagicMirror² project which creates a table filled with a list gathered from a json request."
 }

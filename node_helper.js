@@ -1,5 +1,4 @@
 const NodeHelper = require("node_helper");
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 module.exports = NodeHelper.create({
   start: function () {
@@ -23,6 +22,7 @@ module.exports = NodeHelper.create({
   //Subclass socketNotificationReceived received.
   socketNotificationReceived: function (notification, url) {
     if (notification === "MMM-InsaTable_GET_JSON") {
+      console.log("xxxxxxxxxxxxxxxxxxxxxxxxx: " + url);
       this.getJson(url);
     }
   }
